@@ -4,12 +4,12 @@ import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.jorlop89.githubrepos.data.remote.api.GithubService
-import com.jorlop89.githubrepos.model.Repo
+import com.jorlop89.githubrepos.model.RepoDTO
 import java.lang.Exception
 
-class RemoteDataSource(private val service: GithubService) : PagingSource<Int, Repo>() {
+class RemoteDataSource(private val service: GithubService) : PagingSource<Int, RepoDTO>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Repo> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, RepoDTO> {
         val pageNumber = params.key ?: 1
         return try {
             val response = service.getRepositories(pageNumber, PAGE_SIZE)
@@ -30,7 +30,7 @@ class RemoteDataSource(private val service: GithubService) : PagingSource<Int, R
         }
     }
 
-    override fun getRefreshKey(state: PagingState<Int, Repo>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, RepoDTO>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)

@@ -2,7 +2,7 @@ package com.jorlop89.githubrepos.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Repo(
+data class RepoDTO(
     @SerializedName("name")
     val name: String,
     @SerializedName("description")
@@ -10,7 +10,7 @@ data class Repo(
     @SerializedName("html_url")
     val urlRepository: String,
     @SerializedName("owner")
-    val ownerData: OwnerData,
+    val ownerData: OwnerDTO,
     @SerializedName("fork")
     val fork: Boolean
 )
