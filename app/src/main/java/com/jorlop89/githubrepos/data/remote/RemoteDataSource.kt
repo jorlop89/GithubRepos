@@ -1,11 +1,9 @@
 package com.jorlop89.githubrepos.data.remote
 
-import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.jorlop89.githubrepos.data.remote.api.GithubService
 import com.jorlop89.githubrepos.model.RepoDTO
-import java.lang.Exception
 
 class RemoteDataSource(private val service: GithubService) : PagingSource<Int, RepoDTO>() {
 
@@ -13,15 +11,12 @@ class RemoteDataSource(private val service: GithubService) : PagingSource<Int, R
         val pageNumber = params.key ?: 1
         return try {
             val response = service.getRepositories(pageNumber, PAGE_SIZE)
-            val data = response.items
             var nextPageNumber: Int? = null
-            if(response.nextPage != null){
-                val uri = Uri.parse(response.nextPage.toString())
-                val nextPageQuery = uri.getQueryParameter("page")
-                nextPageNumber = nextPageQuery?.toInt()
+            if(!response.isNullOrEmpty()){
+                nextPageNumber = pageNumber + 1
             }
             LoadResult.Page(
-                data = data,
+                data = response,
                 prevKey = null,
                 nextKey = nextPageNumber
             )

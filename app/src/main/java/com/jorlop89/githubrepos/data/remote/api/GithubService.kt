@@ -1,5 +1,6 @@
 package com.jorlop89.githubrepos.data.remote.api
 
+import com.jorlop89.githubrepos.model.RepoDTO
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -13,11 +14,11 @@ interface GithubService {
     suspend fun getRepositories(
         @Query("page") page: Int,
         @Query("per_page") itemsPerPage: Int
-    ): RepoResponse
+    ): List<RepoDTO>
 
     companion object {
         private const val BASE_URL = "https://api.github.com/"
-        private const val USERNAME = "jorlop89"
+        private const val USERNAME = "googlecodelabs"
 
         fun getInstance(): GithubService {
             val logger = HttpLoggingInterceptor()

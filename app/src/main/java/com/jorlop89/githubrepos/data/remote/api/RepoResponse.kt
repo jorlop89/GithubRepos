@@ -4,6 +4,6 @@ import com.google.gson.annotations.SerializedName
 import com.jorlop89.githubrepos.model.RepoDTO
 
 data class RepoResponse(
-    val items: List<RepoDTO> = listOf(),
-    val nextPage: Int? = null
+    val nextPage: Int? = null,
+    val items: List<RepoDTO> = listOf()
 )
