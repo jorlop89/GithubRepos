@@ -17,10 +17,6 @@ class GithubRepoViewHolder(private val binding: RepoViewItemBinding, listener: G
         binding.tvLoginOwner.text = repo.ownerData.loginOwner
         binding.tvRepoDescription.text = repo.description
         paintIfIRepoIsAFork(repo)
-
-        /*itemView.setOnClickListener{
-            mListener.repoClicked(layoutPosition, repo)
-        }*/
         itemView.setOnLongClickListener {
             mListener.repoClicked(layoutPosition, repo)
         }
