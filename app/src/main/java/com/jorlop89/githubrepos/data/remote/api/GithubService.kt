@@ -18,7 +18,7 @@ interface GithubService {
 
     companion object {
         private const val BASE_URL = "https://api.github.com/"
-        private const val USERNAME = "googlecodelabs"
+        private const val USERNAME = "jorlop89"
 
         fun getInstance(): GithubService {
             val logger = HttpLoggingInterceptor()

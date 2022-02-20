@@ -10,8 +10,10 @@ import javax.inject.Inject
 
 class GithubReposAdapter @Inject constructor(): PagingDataAdapter<RepoDTO, GithubRepoViewHolder>(RepoComparator) {
 
+    private lateinit var mListener: GithubRepoClickListener
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GithubRepoViewHolder {
-        return GithubRepoViewHolder(RepoViewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return GithubRepoViewHolder(RepoViewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false), mListener)
     }
 
     override fun onBindViewHolder(holder: GithubRepoViewHolder, position: Int) {
@@ -27,5 +29,13 @@ class GithubReposAdapter @Inject constructor(): PagingDataAdapter<RepoDTO, Githu
         override fun areContentsTheSame(oldItem: RepoDTO, newItem: RepoDTO): Boolean =
             oldItem == newItem
 
+    }
+
+    fun setOnItemClickListener(listener: GithubRepoClickListener){
+        mListener = listener
+    }
+
+    interface GithubRepoClickListener {
+        fun repoClicked(binding: Int, repo: RepoDTO): Boolean
     }
 }

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GithubRepos</string>
+
+    <!-- Alert Dialog -->
+    <string name="title_alert_dialog">Info</string>
+    <string name="message_alert_dialog">Do you want to go to Github repository url or Github Owner url?</string>
+    <string name="go_to_repository">Repository</string>
+    <string name="go_to_owner">Owner</string>
 </resources>

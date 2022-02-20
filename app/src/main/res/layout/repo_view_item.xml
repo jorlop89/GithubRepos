@@ -10,28 +10,32 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="8dp">
+        android:padding="4dp">
 
         <TextView
             android:id="@+id/tv_repo_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/repo_name_size"
-            android:layout_margin="@dimen/row_item_margin_vertical"
+            android:layout_marginStart="@dimen/row_item_margin_horizontal"
+            android:layout_marginEnd="@dimen/row_item_margin_horizontal"
+            android:layout_marginBottom="@dimen/row_item_margin_vertical"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Name"
             tools:text="Name"/>
+
 
         <TextView
             android:id="@+id/tv_repo_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/repo_description_size"
-            android:layout_margin="@dimen/row_item_margin_vertical"
+            android:layout_marginStart="@dimen/row_item_margin_horizontal"
+            android:layout_marginEnd="@dimen/row_item_margin_horizontal"
+            android:layout_marginBottom="@dimen/row_item_margin_vertical"
             app:layout_constraintTop_toBottomOf="@+id/tv_repo_name"
-            android:text="Description"
             tools:text="Description"/>
 
         <TextView
@@ -39,11 +43,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/repo_owner_size"
-            android:layout_margin="@dimen/row_item_margin_vertical"
+            android:layout_marginStart="@dimen/row_item_margin_horizontal"
+            android:layout_marginEnd="@dimen/row_item_margin_horizontal"
+            android:layout_marginBottom="@dimen/row_item_margin_vertical"
             app:layout_constraintTop_toBottomOf="@+id/tv_repo_description"
-            android:text="Owner"
             tools:text="Owner"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/row_item_margin_horizontal"
+            android:layout_marginEnd="@dimen/row_item_margin_horizontal"
+            android:layout_marginBottom="@dimen/row_item_margin_vertical"
+            android:background="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@+id/tv_login_owner"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
