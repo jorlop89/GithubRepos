@@ -6,7 +6,7 @@ import com.jorlop89.githubrepos.R
 import com.jorlop89.githubrepos.databinding.RepoViewItemBinding
 import com.jorlop89.githubrepos.model.RepoDTO
 
-class GithubRepoViewHolder(private val binding: RepoViewItemBinding, listener: GithubReposAdapter.GithubRepoClickListener): RecyclerView.ViewHolder(binding.root) {
+class GithubReposViewHolder(private val binding: RepoViewItemBinding, listener: GithubReposAdapter.GithubRepoClickListener): RecyclerView.ViewHolder(binding.root) {
 
 
     var mListener: GithubReposAdapter.GithubRepoClickListener = listener

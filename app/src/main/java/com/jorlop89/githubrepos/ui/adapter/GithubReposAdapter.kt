@@ -8,15 +8,15 @@ import com.jorlop89.githubrepos.databinding.RepoViewItemBinding
 import com.jorlop89.githubrepos.model.RepoDTO
 import javax.inject.Inject
 
-class GithubReposAdapter @Inject constructor(): PagingDataAdapter<RepoDTO, GithubRepoViewHolder>(RepoComparator) {
+class GithubReposAdapter @Inject constructor(): PagingDataAdapter<RepoDTO, GithubReposViewHolder>(RepoComparator) {
 
     private lateinit var mListener: GithubRepoClickListener
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GithubRepoViewHolder {
-        return GithubRepoViewHolder(RepoViewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false), mListener)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GithubReposViewHolder {
+        return GithubReposViewHolder(RepoViewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false), mListener)
     }
 
-    override fun onBindViewHolder(holder: GithubRepoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: GithubReposViewHolder, position: Int) {
         getItem(position)?.let {
             holder.bind(it)
         }
